@@ -1,4 +1,5 @@
 import Sun from '../Images/sun.PNG'
+import '../styles/weatherApp.css'
 import clouds from '../Images/clouds.png'
 import storm from '../Images/storm.png'
 import snow from '../Images/snow.png'
@@ -26,7 +27,7 @@ const WeatherCard = () => {
             <div className='weather'>
                 <img src={Sun} alt="sunny weather" />
                 <div className='weather-type'>Sunny</div>
-                <div className='temp'>30{'\u00B0'}</div>
+                <div className='temp'>30°</div>
 
             </div>
 
@@ -48,19 +49,23 @@ const WeatherCard = () => {
                     <div className='data'>7 kpr</div>
                 </div>
 
-
-
-                <div className='min-max-temp'>    {/*Min-Max temp*/}
-                    <div className='Min-temp'>
+               <div className='min-max-temp'>
+                
+               <div className='min-temp'>    {/*Min-Max temp*/}
+                    <div className='data-name'>
                         <div>min temperature</div>
-                        <p>28 {'\u00B0'}</p>
-                    </div>
-
-                    <div className='Max-temp'>
-                        <div>max temperature</div>
-                        <p>32{'\u00B0'}</p>
+                        <p>28°</p>
                     </div>
                 </div>
+
+                   <div className='max-temp'>
+                   <div className='data-name'>
+                        <div>max temperature</div>
+                        <p>32°</p>
+                    </div>
+                  </div>
+               </div>
+
 
 
             </div>
