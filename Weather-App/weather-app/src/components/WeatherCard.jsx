@@ -5,10 +5,26 @@ import storm from '../Images/storm.png'
 import snow from '../Images/snow.png'
 import rain from '../Images/rain.png'
 import haze from '../Images/haze.png'
-
-import React from 'react'
+import React, { useState } from 'react'
 
 const WeatherCard = () => {
+    const[data,setData] = useState({})
+    const[location,setLocation]= useState('')
+    const apiKey='7cc19fadc3e16bdeb584d86c5ece1b72'
+
+
+    const handleInputChange = (e) =>{
+        setLocation(e.target.value)
+    }
+
+
+    const  search = async () => {
+        const url= `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`
+        const res = await fetch(url)
+        const searchData = await res.json()
+        setData(searchData)
+        setLocation('')  //With no Error handling yet
+    }
   return (
     <div className='container'>
         <div className='weather-card'>
@@ -16,18 +32,22 @@ const WeatherCard = () => {
             <div className='search'>
                 <div className='search-top'>    {/*showing the location icon and current place*/}
                     <i className='fa-solid fa-location-dot'></i>
-                    <div className='location'>somewhere</div>
+                    <div className='location'>{data.name}</div> 
+                    <div className='location'>  {data.sys  ? (data.sys.country)  : ''}</div>
+                  
                 </div>
                 <div className='search-bar'>
-                    <input type="text" placeholder='Enter the location' />
-                    <i className='fa-solid fa-magnifying-glass'></i>
+                    <input type="text" placeholder='Enter the location' value={location} onChange={handleInputChange} />
+                    <i className='fa-solid fa-magnifying-glass' onClick={search}></i>
                 </div>
             </div>
 
             <div className='weather'>
                 <img src={Sun} alt="sunny weather" />
-                <div className='weather-type'>Sunny</div>
-                <div className='temp'>30°</div>
+                <div className='weather-type'>{data.weather ? (data.weather[0].main) : ''}</div>
+                {/* <div className='weather-type'>Sunny</div> */}
+                {/* <div className='temp'>30°</div> */}
+                <div className='temp'>{data.main ? Math.round(data.main.temp)+"°" : ''}</div>
 
             </div>
 
@@ -46,7 +66,7 @@ const WeatherCard = () => {
                 <div className='wind'>
                     <div className='data-name'>Wind</div>
                     <i className='fa-solid fa-wind'></i>
-                    <div className='data'>7 kpr</div>
+                    <div className='data'>7 km/h</div>
                 </div>
 
                <div className='min-max-temp'>
