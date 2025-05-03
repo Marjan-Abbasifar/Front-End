@@ -10,7 +10,10 @@ import React, { useState } from 'react'
 const WeatherCard = () => {
     const[data,setData] = useState({})
     const[location,setLocation]= useState('')
+    const[date, setDate] = useState(new Date)
     const apiKey='7cc19fadc3e16bdeb584d86c5ece1b72'
+    
+    console.log(data)
 
 
     const handleInputChange = (e) =>{
@@ -52,36 +55,38 @@ const WeatherCard = () => {
             </div>
 
             <div className='weather-date'>    
-                <p>Saturday, May 3</p>
+                {/* <p>Saturday, May 3</p> */}
+                <p>{date.toDateString()}</p>
+                
             </div>
 
             <div className='weather-data'>
                 <div className='humidity'>
                     <div className='data-name'>Humidity</div>
                     <i className='fa-solid fa-droplet'></i>
-                    <div className='data'>20%</div>
+                    <div className='data'>{data.main ? (data.main.humidity)+'%' : ''}</div>
                 </div>
 
 
                 <div className='wind'>
-                    <div className='data-name'>Wind</div>
+                    <div className='data-name'>Wind speed</div>
                     <i className='fa-solid fa-wind'></i>
-                    <div className='data'>7 km/h</div>
+                    <div className='data'>{data.wind ? Math.round(data.wind.speed) + 'km/h': ''}</div>
                 </div>
 
                <div className='min-max-temp'>
                 
                <div className='min-temp'>    {/*Min-Max temp*/}
                     <div className='data-name'>
-                        <div>min temperature</div>
-                        <p>28°</p>
+                        <div>min temp</div>
+                        <p>{data.main ? Math.round(data.main.temp_min)+'°' : ''}</p>
                     </div>
                 </div>
 
                    <div className='max-temp'>
                    <div className='data-name'>
-                        <div>max temperature</div>
-                        <p>32°</p>
+                        <div>max temp</div>
+                        <p>{data.main ? Math.round(data.main.temp_max)+'°' : ''}</p>
                     </div>
                   </div>
                </div>
