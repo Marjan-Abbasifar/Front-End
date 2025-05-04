@@ -1,10 +1,6 @@
 import Sun from '../Images/sun.PNG'
 import '../styles/weatherApp.css'
-import clouds from '../Images/clouds.png'
-import storm from '../Images/storm.png'
-import snow from '../Images/snow.png'
-import rain from '../Images/rain.png'
-import haze from '../Images/haze.png'
+
 import React, { useEffect, useState } from 'react'
 
 const WeatherCard = () => {
@@ -17,7 +13,7 @@ const WeatherCard = () => {
 
 
 
-    useEffect(()=>{
+    useEffect(()=>{                            //setting the default location for the application               
         const defaultWeather = async () =>{
             const defaultCity = 'Helsinki'
             const defaultUrl= `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&units=metric&appid=${apiKey}`
@@ -41,8 +37,15 @@ const WeatherCard = () => {
         setData(searchData)
         setLocation('')  //With no Error handling yet
     }
+
+  
+    
+
   return (
     <div className='container'>
+        
+
+        
         <div className='weather-card'>
             <h1>Weather App</h1>
             <div className='search'>
@@ -59,7 +62,12 @@ const WeatherCard = () => {
             </div>
 
             <div className='weather'>
-                <img src={Sun} alt="sunny weather" />
+                <div className='weather-icon' >
+                
+                {data.weather && data.weather[0] && <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`}/>}
+                </div>
+               
+                {/* <img src={`https://openweathermap.org/img/wn/${icon}.png`}   */}
                 <div className='weather-type'>{data.weather ? (data.weather[0].main) : ''}</div>
                 {/* <div className='weather-type'>Sunny</div> */}
                 {/* <div className='temp'>30°</div> */}
@@ -108,6 +116,7 @@ const WeatherCard = () => {
 
             </div>
         </div>
+    
     </div>
   )
 }
