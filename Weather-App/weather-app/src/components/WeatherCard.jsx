@@ -5,7 +5,7 @@ import storm from '../Images/storm.png'
 import snow from '../Images/snow.png'
 import rain from '../Images/rain.png'
 import haze from '../Images/haze.png'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const WeatherCard = () => {
     const[data,setData] = useState({})
@@ -14,6 +14,19 @@ const WeatherCard = () => {
     const apiKey='7cc19fadc3e16bdeb584d86c5ece1b72'
     
     console.log(data)
+
+
+
+    useEffect(()=>{
+        const defaultWeather = async () =>{
+            const defaultCity = 'Helsinki'
+            const defaultUrl= `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&units=metric&appid=${apiKey}`
+            const res = await fetch(defaultUrl)
+            const defaultData = await res.json()
+            setData(defaultData)
+            }
+        defaultWeather()
+    },[])
 
 
     const handleInputChange = (e) =>{
