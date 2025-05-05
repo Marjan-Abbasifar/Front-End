@@ -31,14 +31,36 @@ const WeatherCard = () => {
 
 
     const  search = async () => {
+
+       try{
         const url= `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`
         const res = await fetch(url)
         const searchData = await res.json()
+       
+       if (searchData.cod !==200) {
+        throw new Error()
+       }
+       
         setData(searchData)
-        setLocation('')  //With no Error handling yet
+        setLocation('')
+       } 
+
+       catch {
+        alert('Please enter a valid location')
+       }
+
     }
 
-  
+
+        
+    
+
+  const handleKeyDown = (e) =>{
+    if(e.key === 'Enter') {
+        search()
+    }
+
+  }
     
 
   return (
@@ -56,7 +78,7 @@ const WeatherCard = () => {
                   
                 </div>
                 <div className='search-bar'>
-                    <input type="text" placeholder='Enter the location' value={location} onChange={handleInputChange} />
+                    <input type="text" placeholder='Enter the location' value={location} onChange={handleInputChange} onKeyDown={handleKeyDown} />
                     <i className='fa-solid fa-magnifying-glass' onClick={search}></i>
                 </div>
             </div>
