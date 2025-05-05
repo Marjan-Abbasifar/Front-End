@@ -36,12 +36,12 @@ A simple and stylish weather application built with React that fetches real-time
 
   ```bash
   git clone https://github.com/Marjan-Abbasifar/Front-End.git
-  cd weather-app
+  cd Weather-App
 
-## Install dependencies:
+Install dependencies:
    npm install
 
 
-## Start the app:
+Start the app:
    npm run dev
 
