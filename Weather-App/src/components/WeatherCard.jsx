@@ -1,4 +1,4 @@
-import Sun from '../Images/sun.PNG'
+
 import '../styles/weatherApp.css'
 
 import React, { useEffect, useState } from 'react'
