@@ -25,8 +25,9 @@ A simple and stylish weather application built with React that fetches real-time
 ---
 
 ## Prerequisites
-   Node.js and npm installed
-   An API key from OpenWeatherMap
+- Node.js  
+- npm 
+- An API key from OpenWeatherMap
 
 ---
 
@@ -34,14 +35,16 @@ A simple and stylish weather application built with React that fetches real-time
 
   **Clone the repository**
 
-  ```bash
-  git clone https://github.com/Marjan-Abbasifar/Front-End.git
-  cd Weather-App
-
+```bash
+git clone https://github.com/Marjan-Abbasifar/Front-End.git
+cd Weather-App
+```
 Install dependencies:
-   npm install
-
+```bash
+npm install
+```
 
 Start the app:
-   npm run dev
-
+```bash
+npm run dev
+```
