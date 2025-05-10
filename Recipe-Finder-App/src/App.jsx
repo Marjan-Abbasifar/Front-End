@@ -1,6 +1,4 @@
-
-
-import MealCard from './Components/MealCard'
+import RecipeCard from './Components/RecipeCard'
 
 function App() {
  
@@ -8,7 +6,7 @@ function App() {
   return (
 
   <div>
-    <MealCard/>
+    <RecipeCard/>
   </div>
   )
 }
