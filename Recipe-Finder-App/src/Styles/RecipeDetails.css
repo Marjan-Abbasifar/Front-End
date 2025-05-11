@@ -1,0 +1,9 @@
+.recipe-details-container{
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px 20px;
+    position: relative;
+    margin: 0 auto;
+}

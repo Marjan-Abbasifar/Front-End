@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import '../Styles/MealCard.css'
+import { useNavigate } from 'react-router-dom'
+import '../Styles/RecipeCard.css'
 
 const RecipeCard = () => {
     const[recipes, setRecipes] = useState({})
     const[query, setQuery] = useState('')
+    const navigate = useNavigate()
     
     
 
@@ -37,7 +39,9 @@ const RecipeCard = () => {
        } 
        
 
-
+  const handleRecipeId = (id) =>{
+    navigate(`/RecipeDetails/${id}`)
+  }
     
 
 
@@ -82,7 +86,7 @@ return (
                     <div className='text-placeholder description-placeholder'>
                         {meal.strTags}
                     </div>
-                    <button className='recipe-detail'>view recipe</button>
+                    <button className='recipe-detail' onClick={()=> handleRecipeId(meal.idMeal)}>view recipe</button>
                 </div>
 
                 )) 
