@@ -21,7 +21,7 @@ const RecipeCard = () => {
              const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
              const res = await fetch(url)
              const SearchData = await res.json()
-             //console.log(SearchData);
+             console.log(SearchData);
              
              if(!SearchData.meals){
              throw new Error()

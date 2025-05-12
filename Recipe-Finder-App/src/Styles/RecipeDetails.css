@@ -7,3 +7,74 @@
     position: relative;
     margin: 0 auto;
 }
+
+.recipe-details-container h1{
+    font-size: 32px;
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    color: #74512D;
+    font-weight: bold;
+}
+
+
+.image-placeholder-details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     width: 80%; 
+    padding: 16px;
+     margin: 48px auto;
+    } 
+
+    .image-placeholder-details img{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 500px;
+    }
+
+
+
+.recipe-details-container h2 {
+    margin-top: 32px;
+    margin-bottom: 16px;
+    
+}
+
+.recipe-details-container p{
+    line-height: 1.5;
+    font-size: 16px;
+    line-break: auto;
+
+}
+
+@media (min-width: 600px) {
+  .recipe-details-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+
+  
+
+
+@media (min-width: 800px) {
+  .recipe-details-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .image-placeholder-details{
+     width: 90%;
+  }
+
+   .image-placeholder-details img{
+    max-width: 600px;
+  }
+
+}
+
+}
+
+
