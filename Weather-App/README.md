@@ -18,7 +18,7 @@ A simple and stylish weather application built with React that fetches real-time
 
 ## Technologies used
 -	**React** (with Hooks)
--   **vite**
+- **vite**
 -	**[OpenWeatherMap](https://openweathermap.org/) API**
 -	**CSS** 
 

@@ -5,7 +5,12 @@ import '../Styles/RecipeCard.css'
 const RecipeCard = () => {
     const[recipes, setRecipes] = useState({})
     const[query, setQuery] = useState('')
+    const[searchType, setSearchType] = useState('name')
     const navigate = useNavigate()
+
+
+
+
     
     
 
@@ -18,7 +23,15 @@ const RecipeCard = () => {
         e.preventDefault();
         //console.log('function test');
         try{
-             const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
+             //const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
+             let url = ''
+             if( searchType === 'name'){
+                url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
+             } 
+             
+             else if (searchType=== 'ingredient') {
+                url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${query}`
+             }
              const res = await fetch(url)
              const SearchData = await res.json()
              console.log(SearchData);
@@ -51,22 +64,26 @@ const RecipeCard = () => {
 return (
     <div className='container'>
         <div className='meal-card-container'>
+            <div className='theme'>
+              <i className='fa-regular fa-moon'></i>
+              <i  className='fa-regular fa-sun'></i>
+            </div>
             <h1>Recipe Finder</h1>
             <form className='search' onSubmit={search}>
                 <div className='search-bar'>
-                    <input type="text" placeholder='Search your meal' value={query} onChange={handleInputChange}/>
+                    <input type="text" placeholder={searchType === 'name' ? 'Enter the meal' : 'Enter the main ingredient (e.g., chicken)'} value={query} onChange={handleInputChange}/>
                     
                 </div>
                 <div className='search-type-section'>
                     <p className='search-type-lable'>Search type:</p>
                     <div className='radio-group'>
                         <label htmlFor="">
-                            <input type="radio" name='search-type'/>
+                            <input type="radio" name='search-type' value={'ingredient'} checked={searchType ==='ingredient'} onChange={(e)=> setSearchType(e.target.value)}/>
                             Ingredient
                         </label>
 
                         <label htmlFor="">
-                            <input type="radio" name='search-type' />
+                            <input type="radio" name='search-type' value={'name'}  checked={searchType ==='name'} onChange={(e)=> setSearchType(e.target.value)}/>
                                 Name
                         </label>
                     </div>
@@ -84,7 +101,7 @@ return (
                         </div>
                     <div className='text-placeholder title-placeholder'>{meal.strMeal}</div>
                     <div className='text-placeholder description-placeholder'>
-                        {meal.strTags}
+                        {meal.strTags || '' }
                     </div>
                     <button className='recipe-detail' onClick={()=> handleRecipeId(meal.idMeal)}>view recipe</button>
                 </div>
