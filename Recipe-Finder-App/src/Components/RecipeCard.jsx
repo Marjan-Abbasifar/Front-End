@@ -6,7 +6,15 @@ const RecipeCard = () => {
     const[recipes, setRecipes] = useState({})
     const[query, setQuery] = useState('')
     const[searchType, setSearchType] = useState('name')
+    const [theme, setTheme] = useState('light')
     const navigate = useNavigate()
+
+
+    const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    setTheme(newTheme)
+    document.body.className = newTheme 
+    }
 
 
 
@@ -65,8 +73,8 @@ return (
     <div className='container'>
         <div className='meal-card-container'>
             <div className='theme'>
-              <i className='fa-regular fa-moon'></i>
-              <i  className='fa-regular fa-sun'></i>
+              <i className={`fa-regular ${theme === 'light' ? 'fa-moon' : 'fa-sun'}`}  style={{ cursor: 'pointer', color: theme === 'dark' ? '#FF9149' : '#0118D8' }} onClick={toggleTheme}></i>
+             
             </div>
             <h1>Recipe Finder</h1>
             <form className='search' onSubmit={search}>
@@ -93,7 +101,8 @@ return (
             </form>
 
             <div className='result'>
-                {recipes.meals ? (
+                
+                    {recipes.meals ? (
                     recipes.meals.map((meal)=>(
                     <div className='meal-card-placeholder' key={meal.idMeal}>
                         <div className='image-placeholder'>
@@ -109,6 +118,7 @@ return (
                 )) 
                 ): null}
 
+                
 
             </div>
         </div>

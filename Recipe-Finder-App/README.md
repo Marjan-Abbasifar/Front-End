@@ -36,3 +36,7 @@ Start the app:
 ```bash
 npm run dev
 ```
+## Run Tests
+```bash
+npm test
+```
