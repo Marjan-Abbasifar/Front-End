@@ -9,19 +9,7 @@ import { MemoryRouter } from "react-router-dom";
 
 describe ('RecipeCard', () => {
     it('Shows the app title',() => {
-         global.fetch=vi.fn().mockResolvedValue({
-            json: async() => ({
-                meals: [{
-
-                idMeal: '7070',
-                strMeal: 'cake',
-                strMealThumb: 'https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg',
-                strTags: 'cake, dessert'
-
-                }]
-            })
-
-        })
+         
 
          render (
             <MemoryRouter>
