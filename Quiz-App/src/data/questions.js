@@ -30,7 +30,7 @@ const questions = [
 {
     question: "Persian is the language of which country?",
     options: ["Brazil", "Italy", "Germany" , "Iran" ],
-    answer: "100°C"
+    answer: "Iran"
 },
 {
     question: "How many continents are there?",
@@ -50,10 +50,10 @@ const questions = [
 {
     question: "How many keys are on the standard piano?",
     options: ["88", "100", "69" , "72" ],
-    answer: "100°C"
+    answer: "88"
 },
 {
-    question: "Who pained the Mona Lisa?",
+    question: "Who painted the Mona Lisa?",
     options: ["Vincent Van Gogh", "Pablo Picasso", "Leonardo da Vinci" , "Claude Monet" ],
     answer: "Leonardo da Vinci"
 },
@@ -81,4 +81,3 @@ export default questions;
 
 
 
-]

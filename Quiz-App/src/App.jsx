@@ -1,18 +1,19 @@
-import { useState } from 'react'
+
 import QuestionCard from './components/QuestionCard'
 
 
 
+
 function App() {
-
-
+ 
   return (
-    <>
-<div>
+   
+<div >
   
-  <QuestionCard/>
+  <QuestionCard />
+  
 </div>
-    </>
+    
   )
 }
 
