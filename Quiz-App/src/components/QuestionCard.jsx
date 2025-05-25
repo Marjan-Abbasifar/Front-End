@@ -32,8 +32,15 @@ const QuestionCard = () => {
   
     const isLastQuestion = currentIndex === questions.length-1
 
-    const handleResult = () =>{
+    const handleResult = (option) =>{
       setShowResult(true)
+    }
+    
+    const handleRetry = () => {
+      setCurrentIndex(0);
+      setScore(0);
+    setSelectedOption(null);
+    setShowResult(false)
     }
 
     if(showResult){
@@ -43,7 +50,7 @@ const QuestionCard = () => {
           <h1 className='result-topic'>My Quiz Card</h1>
           <h2>Your Score:</h2>
           <p>Your score is {score} from {totalQuestion}</p>
-          <button className='retry-btn'>Retry</button>
+          <button className='retry-btn' onClick={handleRetry}>Retry</button>
         </div>
       </div>
       )
