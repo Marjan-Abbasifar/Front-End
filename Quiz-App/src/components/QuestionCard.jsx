@@ -70,15 +70,15 @@ const getButtonClass = (option) => {
   return (
  <div className='container'>
        <div className='question-card'>
-        <h1 className='topic'>My Quiz app</h1>
+        <h1 className='topic'>My Quiz App</h1>
         <h3 className='question-text'>{currentQuestion.question}</h3>
         <div className='options'>
           {currentQuestion.options.map((option, index)=>(
               <button key={index} className={getButtonClass(option)} onClick={() => handleAnswer(option)}>{option}</button>
             ))}
         </div>
-        {!isLastQuestion && (<button className='control-btn' onClick={handleNext}>Next</button>)}
-         { isLastQuestion && (<button className='control-btn' onClick={handleResult}>Result </button>)} 
+        {!isLastQuestion && (<button className='control-btn' id='next' onClick={handleNext}>Next</button>)}
+         { isLastQuestion && (<button className='control-btn' id='result' onClick={handleResult}>Result </button>)} 
       
     </div>
 
